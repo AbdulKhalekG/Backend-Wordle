@@ -30,8 +30,9 @@ const config={
          const validpassword= await helpers.compararclave(password,newuser.clave) 
         
          if(validpassword){
-          //password===newuser.clave
-          done(null,newuser,console.log('welcome'))
+          
+          done(null,newuser,
+            res.json('welcome'))
           user.id=newuser.id_usuario
           passport.serializeUser((user,done)=>{
             done(null,user.id)
@@ -39,11 +40,11 @@ const config={
 
 
          }else{
-              done(null,false,console.log('password incorrect'))
+              done(null,false,res.json('password incorrect'))
               
          }
       }else{
-        return done(null, false,console.log('user does not exist'))   
+        return done(null, false,res.json('user no exist'))   
         
       }
       
