@@ -57,11 +57,6 @@ const config={
 
 
 
-passport.deserializeUser( async (id_usuario,done)=>{
-    const rows = await pool.query('SELECT * FROM usuarios WHERE id_usuario=?',[id_usuario])
-    done(null,rows[0])
-})
-
 module.exports={
   LocalStrategy
 }
